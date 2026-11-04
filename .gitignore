@@ -1,0 +1,30 @@
+# Generated raw data (regenerate with `make data`); only data/sample/ is committed
+data/raw/
+data/warehouse/
+*.duckdb
+*.duckdb.wal
+
+# dbt
+target/
+dbt_packages/
+logs/
+.user.yml
+package-lock.yml
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.ipynb_checkpoints/
+
+# Local credentials
+profiles.local.yml
+.dbt/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
