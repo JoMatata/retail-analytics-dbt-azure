@@ -1,0 +1,52 @@
+name: kenya_retail
+version: "1.0.0"
+config-version: 2
+profile: kenya_retail
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+test-paths: ["tests"]
+snapshot-paths: ["snapshots"]
+analysis-paths: ["analyses"]
+target-path: "target"
+clean-targets: ["target", "dbt_packages", "logs"]
+
+vars:
+  # Fixed "as of" date so RFM recency is reproducible against the synthetic window.
+  analysis_date: "2025-12-31"
+  # Re-process this many days of late-arriving orders on each incremental run.
+  incremental_lookback_days: 3
+
+models:
+  kenya_retail:
+    staging:
+      +schema: staging
+      +materialized: view
+    intermediate:
+      +schema: intermediate
+      +materialized: table
+    marts:
+      +schema: marts
+      +materialized: table
+
+seeds:
+  kenya_retail:
+    +schema: reference
+    county_regions:
+      +column_types:
+        county_code: integer
+        county_key: varchar(50)
+        county_name: varchar(50)
+        region: varchar(30)
+    promo_codes:
+      +column_types:
+        promo_code: varchar(30)
+        campaign: varchar(50)
+        discount_pct: decimal(5,2)
+        valid_from: date
+        valid_to: date
+
+snapshots:
+  kenya_retail:
+    +schema: snapshots

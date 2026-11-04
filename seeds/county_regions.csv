@@ -1,0 +1,48 @@
+county_code,county_key,county_name,region
+1,mombasa,Mombasa,Coast
+2,kwale,Kwale,Coast
+3,kilifi,Kilifi,Coast
+4,tana river,Tana River,Coast
+5,lamu,Lamu,Coast
+6,taita taveta,Taita Taveta,Coast
+7,garissa,Garissa,North Eastern
+8,wajir,Wajir,North Eastern
+9,mandera,Mandera,North Eastern
+10,marsabit,Marsabit,Eastern
+11,isiolo,Isiolo,Eastern
+12,meru,Meru,Eastern
+13,tharaka nithi,Tharaka Nithi,Eastern
+14,embu,Embu,Eastern
+15,kitui,Kitui,Eastern
+16,machakos,Machakos,Eastern
+17,makueni,Makueni,Eastern
+18,nyandarua,Nyandarua,Central
+19,nyeri,Nyeri,Central
+20,kirinyaga,Kirinyaga,Central
+21,murang'a,Murang'a,Central
+22,kiambu,Kiambu,Central
+23,turkana,Turkana,Rift Valley
+24,west pokot,West Pokot,Rift Valley
+25,samburu,Samburu,Rift Valley
+26,trans nzoia,Trans Nzoia,Rift Valley
+27,uasin gishu,Uasin Gishu,Rift Valley
+28,elgeyo marakwet,Elgeyo Marakwet,Rift Valley
+29,nandi,Nandi,Rift Valley
+30,baringo,Baringo,Rift Valley
+31,laikipia,Laikipia,Rift Valley
+32,nakuru,Nakuru,Rift Valley
+33,narok,Narok,Rift Valley
+34,kajiado,Kajiado,Rift Valley
+35,kericho,Kericho,Rift Valley
+36,bomet,Bomet,Rift Valley
+37,kakamega,Kakamega,Western
+38,vihiga,Vihiga,Western
+39,bungoma,Bungoma,Western
+40,busia,Busia,Western
+41,siaya,Siaya,Nyanza
+42,kisumu,Kisumu,Nyanza
+43,homa bay,Homa Bay,Nyanza
+44,migori,Migori,Nyanza
+45,kisii,Kisii,Nyanza
+46,nyamira,Nyamira,Nyanza
+47,nairobi,Nairobi,Nairobi

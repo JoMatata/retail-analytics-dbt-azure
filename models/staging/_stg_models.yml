@@ -1,0 +1,214 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: >
+      One row per customer. Deduplicates CRM re-syncs (latest `updated_at` wins), normalises
+      email/county/channel casing and converts every phone format to E.164 (+2547XXXXXXXX).
+    columns:
+      - name: customer_id
+        description: Customer natural key.
+        tests: [unique, not_null]
+      - name: first_name
+        description: Customer first name (synthetic).
+      - name: last_name
+        description: Customer last name (synthetic).
+      - name: email
+        description: Lower-cased email; NULL when not captured (~3%).
+      - name: phone_e164
+        description: Phone normalised by the `normalize_ke_phone` macro.
+      - name: county_key
+        description: Lower-cased, trimmed home county; joins to the `county_regions` seed. NULL for ~2%.
+        tests:
+          - relationships:
+              arguments:
+                to: ref('county_regions')
+                field: county_key
+      - name: signup_date
+        description: Date the customer created their account.
+        tests: [not_null]
+      - name: signup_channel
+        description: Channel the account was created in.
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['web', 'app', 'store']
+      - name: is_marketing_opt_in
+        description: 1 if the customer accepted marketing messages.
+      - name: updated_at
+        description: Last CRM update timestamp (used for deduplication).
+
+  - name: stg_products
+    description: >
+      One row per product. Parses text prices ("KES 1,250.00") with `clean_kes_amount` and maps
+      inconsistent category spellings to canonical names.
+    columns:
+      - name: product_id
+        description: Product natural key.
+        tests: [unique, not_null]
+      - name: product_name
+        description: Brand + item description.
+      - name: category
+        description: Canonical product category.
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Groceries', 'Beverages', 'Household', 'Personal Care', 'Baby & Kids', 'Home & Kitchen', 'Fashion', 'Electronics']
+      - name: list_price
+        description: Current shelf price in KES.
+        tests: [not_null, non_negative]
+      - name: unit_cost
+        description: Landed unit cost in KES. NULL for ~5% of products (estimated downstream).
+        tests: [non_negative]
+      - name: is_active
+        description: 1 if the product is currently sold.
+      - name: created_at
+        description: Date the product was created in the master.
+
+  - name: stg_orders
+    description: >
+      One row per order. Removes duplicate loads, standardises channel / status / county casing,
+      collapses payment-method spellings and upper-cases promo codes.
+    columns:
+      - name: order_id
+        description: Order natural key.
+        tests: [unique, not_null]
+      - name: customer_id
+        description: Customer who placed the order.
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_customers')
+                field: customer_id
+      - name: order_ts
+        description: Order timestamp (East Africa Time).
+        tests: [not_null]
+      - name: order_date
+        description: Calendar date of the order.
+      - name: channel
+        description: Sales channel.
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['web', 'app', 'store']
+      - name: delivery_county_key
+        description: Lower-cased delivery / store county. NULL for ~1% (falls back to home county downstream).
+      - name: payment_method
+        description: Tender type after `normalize_payment_method`.
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['mpesa', 'card', 'cash']
+      - name: promo_code
+        description: Upper-cased promo code entered at checkout, if any.
+        tests:
+          - relationships:
+              arguments:
+                to: ref('promo_codes')
+                field: promo_code
+              config:
+                severity: warn   # unknown codes (e.g. FREESHIP) are surfaced, not blocked
+      - name: order_status
+        description: Final order status.
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['completed', 'cancelled', 'returned']
+      - name: loaded_at
+        description: Time the row was loaded into the landing zone.
+
+  - name: stg_order_items
+    description: One row per order line. Removes duplicate loads and zero-quantity (voided) lines.
+    columns:
+      - name: order_item_id
+        description: Order line natural key.
+        tests: [unique, not_null]
+      - name: order_id
+        description: Parent order.
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_orders')
+                field: order_id
+      - name: product_id
+        description: Product sold.
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_products')
+                field: product_id
+      - name: quantity
+        description: Units sold (always > 0 after cleaning).
+        tests:
+          - not_null
+          - value_between:
+              arguments: {min_value: 1, max_value: 100}
+      - name: unit_price
+        description: Price per unit charged, KES.
+        tests: [not_null, non_negative]
+      - name: discount_amount
+        description: Promo discount applied to the line, KES.
+        tests: [not_null, non_negative]
+
+  - name: stg_payments
+    description: One row per payment event. Removes replayed M-Pesa callbacks and normalises method/status.
+    columns:
+      - name: payment_id
+        description: Payment event natural key.
+        tests: [unique, not_null]
+      - name: order_id
+        description: Order the payment relates to.
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_orders')
+                field: order_id
+      - name: payment_method
+        description: Normalised tender type.
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['mpesa', 'card', 'cash']
+      - name: amount_kes
+        description: Amount of the event in KES.
+        tests: [not_null, non_negative]
+      - name: payment_status
+        description: Outcome of the payment event.
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['success', 'failed', 'refunded']
+      - name: paid_at
+        description: Event timestamp.
+
+  - name: stg_marketing_spend
+    description: One row per month x channel x campaign type. Removes double-loaded rows and parses "1,234,567" amounts.
+    columns:
+      - name: spend_id
+        description: Surrogate key `YYYY-MM|channel|campaign_type`.
+        tests: [unique, not_null]
+      - name: spend_month
+        description: First day of the spend month.
+        tests: [not_null]
+      - name: channel
+        description: Acquisition channel the spend supports.
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['web', 'app', 'store']
+      - name: campaign_type
+        description: Media type (search, social, app_install, radio, outdoor, in_store_promo).
+      - name: spend_kes
+        description: Spend in KES.
+        tests: [not_null, non_negative]

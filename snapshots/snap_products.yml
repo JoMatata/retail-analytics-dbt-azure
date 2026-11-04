@@ -1,0 +1,10 @@
+snapshots:
+  - name: snap_products
+    description: >
+      Type-2 history of the product master (price, cost, category, active flag).
+      Each `dbt build` / `dbt snapshot` adds a new version when a tracked column changes.
+    relation: ref('stg_products')
+    config:
+      unique_key: product_id
+      strategy: check
+      check_cols: [list_price, unit_cost, category, is_active]

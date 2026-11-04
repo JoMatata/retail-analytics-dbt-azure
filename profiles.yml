@@ -1,0 +1,10 @@
+# Local/CI profile: DuckDB only, no secrets. Used via `--profiles-dir .`
+# For Azure targets copy profiles.example.yml to ~/.dbt/profiles.yml.
+kenya_retail:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "{{ env_var('DBT_DUCKDB_PATH', 'data/warehouse/kenya_retail.duckdb') }}"
+      schema: main
+      threads: 4

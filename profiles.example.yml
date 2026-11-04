@@ -1,0 +1,41 @@
+# Copy to ~/.dbt/profiles.yml (or point DBT_PROFILES_DIR at a folder containing it).
+# Credentials are read from environment variables -- never commit real values.
+#
+#   dbt build --target dev        # DuckDB on your laptop (default)
+#   dbt build --target azure      # Azure SQL Database      (pip install dbt-sqlserver)
+#   dbt build --target synapse    # Azure Synapse dedicated (pip install dbt-synapse)
+kenya_retail:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "{{ env_var('DBT_DUCKDB_PATH', 'data/warehouse/kenya_retail.duckdb') }}"
+      schema: main
+      threads: 4
+
+    azure:
+      type: sqlserver
+      driver: "ODBC Driver 18 for SQL Server"
+      server: "{{ env_var('AZURE_SQL_SERVER') }}"          # e.g. myserver.database.windows.net
+      port: 1433
+      database: "{{ env_var('AZURE_SQL_DATABASE') }}"
+      schema: analytics
+      authentication: "{{ env_var('AZURE_SQL_AUTH', 'sql') }}"   # sql | ActiveDirectoryServicePrincipal | CLI
+      user: "{{ env_var('AZURE_SQL_USER') }}"
+      password: "{{ env_var('AZURE_SQL_PASSWORD') }}"
+      encrypt: true
+      trust_cert: false
+      threads: 4
+
+    synapse:
+      type: synapse
+      driver: "ODBC Driver 18 for SQL Server"
+      host: "{{ env_var('SYNAPSE_HOST') }}"                 # e.g. myworkspace.sql.azuresynapse.net
+      port: 1433
+      database: "{{ env_var('SYNAPSE_DATABASE') }}"
+      schema: analytics
+      authentication: ServicePrincipal
+      tenant_id: "{{ env_var('AZURE_TENANT_ID') }}"
+      client_id: "{{ env_var('AZURE_CLIENT_ID') }}"
+      client_secret: "{{ env_var('AZURE_CLIENT_SECRET') }}"
+      threads: 4

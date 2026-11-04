@@ -1,0 +1,113 @@
+product_id,product_name,category,list_price,unit_cost,is_active,created_at
+P0001,Savanna Maize Flour 2kg, Groceries,209.0,169.7,True,2023-12-01
+P0002,Tausi Wheat Flour 2kg,Groceries,229.0,175.59,True,2023-12-01
+P0003,Jua Pishori Rice 1kg,Groceries,289.0,247.83,True,2023-12-01
+P0004,Baraka Sugar 1kg,Groceries ,KES 169.00,135.72,True,2023-12-01
+P0005,Neema Cooking Oil 1L,Groceries,349.0,300.96,True,2023-12-01
+P0006,Simba Cooking Oil 3L,Groceries ,879.0,727.07,True,2023-12-01
+P0007,Kifaru Tea Leaves 250g,Groceries,179.0,149.87,True,2023-12-01
+P0008,Mvua Fresh Milk 500ml,Groceries,63.0,,True,2023-12-01
+P0010,Nyota Eggs Tray 30,Groceries,419.0,324.58,True,2023-12-01
+P0012,Tausi Green Grams 1kg,Groceries,219.0,178.71,True,2023-12-01
+P0015,Neema Tomato Paste 400g,Groceries,199.0,158.28,True,2023-12-01
+P0016,Simba Salt 1kg,Groceries,KES 57.00,45.9,True,2023-12-01
+P0017,Kifaru Margarine 500g,Groceries,279.0,215.59,True,2023-12-01
+P0018,Mvua Peanut Butter 400g,Groceries,319.0,273.59,True,2023-12-01
+P0020,Savanna Wheat Flour 2kg,Groceries,219.0,169.23,True,2023-12-01
+P0025,Simba Tea Leaves 250g,Groceries,179.0,140.53,True,2023-12-01
+P0028,Pwani Eggs Tray 30,Groceries,479.0,412.51,True,2023-12-01
+P0030,Savanna Green Grams 1kg,Groceries,219.0,169.85,True,2023-12-01
+P0033,Baraka Tomato Paste 400g,Groceries,179.0,,True,2023-12-01
+P0039,Savanna Pishori Rice 1kg,Groceries,239.0,207.16,True,2023-12-01
+P0040,Tausi Sugar 1kg,Groceries,189.0,153.3,True,2023-12-01
+P0043,Neema Tea Leaves 250g,Groceries,KES 149.00,115.23,True,2023-12-01
+P0047,Pwani Bread 400g,Groceries,73.0,55.86,True,2023-12-01
+P0052,Baraka Salt 1kg,Groceries,52.0,39.97,True,2023-12-01
+P0053,Neema Margarine 500g,Groceries,KES 249.00,209.39,True,2023-12-01
+P0057,Nyota Pishori Rice 1kg,Groceries,249.0,218.98,True,2023-12-01
+P0065,Mvua Bread 400g,Groceries,58.0,50.08,True,2023-12-01
+P0072,Neema Peanut Butter 400g,Groceries,429.0,363.9,True,2023-12-01
+P0073,Kifaru Maize Flour 2kg,Groceries,169.0,130.24,True,2023-12-01
+P0079,Jua Tea Leaves 250g,Groceries,189.0,162.53,True,2023-12-01
+P0080,Baraka Fresh Milk 500ml,Groceries,73.0,55.24,True,2023-12-01
+P0081,Neema Long-life Milk 1L,Groceries,159.0,136.57,True,2023-12-01
+P0084,Mvua Green Grams 1kg,Groceries,219.0,183.95,True,2023-12-01
+P0087,Savanna Tomato Paste 400g,Groceries,159.0,132.35,True,2023-12-01
+P0091,Savanna Soda 500ml,Beverages,61.0,45.1,True,2023-12-01
+P0092,Tausi Soda 2L,BEVERAGES,219.0,175.76,True,2023-12-01
+P0094,Baraka Mineral Water 1.5L,Beverages,99.0,71.58,True,2023-12-01
+P0095,Neema Instant Coffee 100g,Beverages,609.0,455.97,True,2023-12-01
+P0096,Simba Drinking Chocolate 400g,Beverages,KES 519.00,375.62,True,2023-12-01
+P0098,Mvua Ground Coffee 250g,Beverages,519.0,432.34,True,2023-12-01
+P0099,Nyota Soda 500ml,Beverages,80.0,66.42,True,2023-12-01
+P0101,Tausi Juice 1L,Beverages,KES 259.00,190.21,True,2023-12-01
+P0102,Jua Mineral Water 1.5L,Beverages,93.0,76.69,True,2023-12-01
+P0106,Kifaru Ground Coffee 250g,Beverages,579.0,442.91,True,2023-12-01
+P0111,Jua Instant Coffee 100g,Beverages,719.0,534.12,True,2023-12-01
+P0121,Baraka Energy Drink 500ml,Beverages,139.0,101.82,True,2023-12-01
+P0131,Savanna Laundry Bar 800g,Household,179.0,121.08,True,2023-12-01
+P0132,Tausi Washing Powder 1kg,Household,349.0,231.67,True,2023-12-01
+P0134,Baraka Toilet Paper 10pk,Household,419.0,292.12,True,2023-12-01
+P0135,Neema Bleach 1L,Household,209.0,141.1,True,2023-12-01
+P0136,Simba Insecticide 300ml,Household,519.0,360.76,True,2023-12-01
+P0139,Nyota Washing Powder 1kg, Household,279.0,192.55,True,2023-12-01
+P0146,Mvua Washing Powder 1kg,Household,289.0,195.59,True,2023-12-01
+P0149,Savanna Bleach 1L,Household,179.0,133.21,True,2023-12-01
+P0164,Mvua Insecticide 300ml,Household,469.0,348.59,True,2023-12-01
+P0165,Pwani Floor Cleaner 1L,Household,299.0,208.95,True,2023-12-01
+P0166,Savanna Bathing Soap 3pk,Personal Care,259.0,166.5,True,2023-12-01
+P0167,Tausi Toothpaste 140g,Personal Care,189.0,123.1,True,2023-12-01
+P0168,Jua Body Lotion 400ml,Personal Care,559.0,387.83,True,2023-12-01
+P0169,Baraka Shampoo 400ml,Personal Care,KES 569.00,387.6,True,2023-12-01
+P0170,Neema Petroleum Jelly 250ml,Personal Care,249.0,161.7,True,2023-12-01
+P0171,Simba Deodorant 150ml,Personal Care,369.0,252.97,True,2023-12-01
+P0172,Kifaru Sanitary Pads 8pk,Personal Care,119.0,75.3,True,2023-12-01
+P0174,Nyota Toothpaste 140g,Personal Care,219.0,150.47,True,2023-12-01
+P0176,Tausi Shampoo 400ml,PERSONAL CARE,539.0,376.05,True,2023-12-01
+P0180,Kifaru Bathing Soap 3pk,Personal Care,229.0,140.89,True,2023-12-01
+P0181,Mvua Toothpaste 140g,Personal Care,KES 229.00,150.18,True,2023-12-01
+P0188,Simba Toothpaste 140g,Personal Care ,179.0,122.75,True,2023-12-01
+P0190,Mvua Shampoo 400ml,Personal Care,479.0,304.7,True,2023-12-01
+P0191,Pwani Petroleum Jelly 250ml,Personal Care,209.0,143.34,True,2023-12-01
+P0192,Nyota Deodorant 150ml,Personal Care,KES 469.00,322.02,True,2023-12-01
+P0199,Mvua Deodorant 150ml,Personal Care,359.0,225.06,True,2023-12-01
+P0203,Jua Body Lotion 400ml,Personal Care,549.0,334.82,True,2023-12-01
+P0206,Savanna Diapers 40pk,Baby & Kids,"KES 1,599.00",,True,2023-12-01
+P0208,Jua Baby Formula 400g,Baby & Kids,1689.0,1274.15,True,2023-12-01
+P0209,Baraka Baby Lotion 200ml,Baby & Kids,499.0,344.36,True,2023-12-01
+P0210,Neema School Bag,Baby & Kids,1579.0,1115.11,True,2023-12-01
+P0211,Simba Exercise Books 10pk,BABY & KIDS,KES 529.00,389.41,False,2023-12-01
+P0212,Mvua Diapers 40pk,Baby & Kids,1419.0,921.58,True,2023-12-01
+P0213,Pwani Baby Wipes 80pk,Baby & Kids,409.0,296.07,True,2023-12-01
+P0214,Nyota Baby Formula 400g,Baby & Kids ,1899.0,1380.22,True,2023-12-01
+P0216,Tausi School Bag,Baby & Kids,2069.0,1333.48,True,2023-12-01
+P0218,Neema Diapers 40pk,Baby & Kids,1689.0,1214.76,True,2023-12-01
+P0219,Simba Baby Wipes 80pk,Baby & Kids,439.0,299.83,True,2023-12-01
+P0228,Simba School Bag,Baby & Kids,1659.0,,True,2023-12-01
+P0230,Pwani Diapers 40pk,Baby & Kids,1719.0,1251.81,True,2023-12-01
+P0231,Savanna Sufuria Set,Home & Kitchen,3039.0,2003.86,True,2023-12-01
+P0232,Tausi Thermos Flask 1.8L,Home & Kitchen,1449.0,957.18,True,2023-12-01
+P0233,Jua Electric Kettle,Home & Kitchen,2659.0,1672.52,True,2023-12-01
+P0235,Neema Blender,Home & Kitchen,"KES 4,969.00",3265.29,True,2023-12-01
+P0236,Simba Gas Refill 6kg,Home & Kitchen,1409.0,914.39,True,2023-12-01
+P0241,Tausi Electric Kettle,Home & Kitchen,2469.0,1514.36,False,2023-12-01
+P0244,Neema Gas Refill 6kg,Home & Kitchen,1389.0,835.35,True,2023-12-01
+P0248,Nyota Thermos Flask 1.8L,HOME & KITCHEN,"KES 1,329.00",871.81,False,2023-12-01
+P0259,Tausi Blender,Home & Kitchen,4679.0,3065.0,True,2023-12-01
+P0261,Savanna Kitenge Dress,Fashion,2349.0,1253.2,True,2023-12-01
+P0262,Tausi Men's Shirt,Fashion,1699.0,915.37,True,2023-12-01
+P0263,Jua Jeans,Fashion,2499.0,1213.19,True,2023-12-01
+P0266,Simba School Uniform Set,Fashion,2719.0,1254.88,True,2023-12-01
+P0269,Nyota Men's Shirt,Fashion,1429.0,673.77,True,2023-12-01
+P0272,Jua Leso Pair,Fashion,739.0,347.44,True,2023-12-01
+P0281,Savanna Smartphone 64GB,Electronics,12389.0,11159.19,True,2023-12-01
+P0282,Tausi Feature Phone, Electronics,2179.0,1752.23,True,2023-12-01
+P0283,Jua Solar Lamp Kit,Electronics,3759.0,3327.18,True,2023-12-01
+P0284,Baraka Bluetooth Speaker,Electronics,4149.0,3384.56,True,2023-12-01
+P0285,"Neema 32"" LED TV",Electronics,21289.0,,True,2023-12-01
+P0286,Simba Power Bank 20000mAh,Electronics,2639.0,2354.33,True,2023-12-01
+P0287,Kifaru Earphones,Electronics,KES 879.00,758.0,True,2023-12-01
+P0291,Tausi Solar Lamp Kit,Electronics,4219.0,3351.51,True,2023-12-01
+P0293,"Baraka 32"" LED TV",Electronics,18279.0,15265.02,True,2023-12-01
+P0295,Simba Earphones,Electronics,"KES 1,059.00",906.02,True,2023-12-01
+P0296,"Kifaru Smart TV 43""",ELECTRONICS,"KES 37,319.00",31550.57,True,2023-12-01

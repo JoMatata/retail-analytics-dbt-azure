@@ -1,0 +1,404 @@
+version: 2
+
+models:
+  - name: fct_orders
+    description: >
+      Order fact table, one row per order (all statuses). **Incremental** (delete+insert on
+      `order_id`) with a configurable look-back window for late-arriving orders. Revenue measures
+      exclude cancelled/returned orders downstream via `is_completed`.
+    columns:
+      - name: order_id
+        description: Order key.
+        tests: [unique, not_null]
+      - name: customer_id
+        description: Customer key.
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_customers')
+                field: customer_id
+      - name: order_ts
+        description: Order timestamp.
+      - name: order_date
+        description: Order date.
+        tests: [not_null]
+      - name: order_month
+        description: First day of order month.
+        tests: [not_null]
+      - name: channel
+        description: Sales channel.
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['web', 'app', 'store']
+      - name: county_key
+        description: Delivery/store county, falling back to the customer's home county.
+      - name: county_name
+        description: County display name ('Unknown' when neither county is known).
+      - name: region
+        description: Former province of the county.
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Nairobi', 'Central', 'Coast', 'Eastern', 'North Eastern', 'Nyanza', 'Rift Valley', 'Western', 'Unknown']
+      - name: payment_method
+        description: Normalised tender type.
+      - name: promo_code
+        description: Promo code entered, if any.
+      - name: is_valid_promo
+        description: 1 if the code exists in `promo_codes` and was valid on the order date.
+      - name: order_status
+        description: completed / cancelled / returned.
+      - name: is_completed
+        description: 1 for completed orders (the revenue-recognised population).
+        tests:
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+      - name: item_count
+        description: Number of order lines.
+      - name: units
+        description: Total units.
+      - name: gross_amount
+        description: Sum of line gross amounts, KES.
+      - name: discount_amount
+        description: Total promo discount, KES.
+      - name: net_amount
+        description: Revenue after discounts, KES.
+        tests: [not_null, non_negative]
+      - name: cogs
+        description: Cost of goods sold, KES.
+      - name: gross_profit
+        description: net_amount - cogs.
+      - name: amount_paid
+        description: Successfully collected, KES.
+      - name: amount_refunded
+        description: Refunded, KES.
+      - name: failed_payment_attempts
+        description: Failed payment attempts before success / cancellation.
+      - name: payment_status
+        description: paid / refunded / failed / unpaid.
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['paid', 'refunded', 'failed', 'unpaid']
+      - name: customer_order_number
+        description: Sequence of this order among the customer's completed orders (NULL if not completed).
+      - name: is_first_order
+        description: 1 for a customer's first completed order (an acquisition).
+      - name: customer_type
+        description: "'new' for first completed order, 'returning' otherwise, NULL if not completed."
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['new', 'returning']
+      - name: days_since_previous_order
+        description: Days since the customer's previous completed order.
+      - name: loaded_at
+        description: Landing-zone load timestamp (used for incremental audits).
+
+  - name: dim_customers
+    description: One row per customer (incl. sign-ups who never purchased) with geography, acquisition and lifetime value.
+    columns:
+      - name: customer_id
+        description: Customer key.
+        tests: [unique, not_null]
+      - name: first_name
+        description: First name (synthetic).
+      - name: last_name
+        description: Last name (synthetic).
+      - name: email
+        description: Email (synthetic, example.co.ke).
+      - name: phone_e164
+        description: Phone in E.164.
+      - name: county_key
+        description: Home county key.
+      - name: county_name
+        description: Home county.
+      - name: region
+        description: Home region (former province).
+        tests: [not_null]
+      - name: signup_date
+        description: Account creation date.
+      - name: signup_channel
+        description: Channel of account creation.
+      - name: is_marketing_opt_in
+        description: Marketing consent flag.
+      - name: acquisition_channel
+        description: Channel of the first completed order.
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['web', 'app', 'store']
+      - name: first_order_date
+        description: Date of first completed order.
+      - name: last_order_date
+        description: Date of most recent completed order.
+      - name: cohort_month
+        description: Month of first completed order (acquisition cohort).
+      - name: days_to_first_order
+        description: Days from sign-up to first completed order.
+      - name: lifetime_orders
+        description: Completed orders to date.
+        tests: [non_negative]
+      - name: lifetime_net_revenue
+        description: Lifetime net revenue, KES.
+        tests: [non_negative]
+      - name: lifetime_gross_profit
+        description: Lifetime gross profit, KES.
+      - name: avg_order_value
+        description: lifetime_net_revenue / lifetime_orders.
+      - name: lifecycle_status
+        description: active (ordered in last 90 days of analysis_date) / lapsed / never_purchased.
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['active', 'lapsed', 'never_purchased']
+
+  - name: dim_products
+    description: One row per product with list margin and lifetime sales from completed orders.
+    columns:
+      - name: product_id
+        description: Product key.
+        tests: [unique, not_null]
+      - name: product_name
+        description: Product name.
+      - name: category
+        description: Product category.
+        tests: [not_null]
+      - name: list_price
+        description: Current shelf price, KES.
+      - name: unit_cost
+        description: Unit cost from the master (NULL if missing).
+      - name: is_cost_missing
+        description: 1 when the product master has no cost.
+      - name: list_margin_pct
+        description: (list_price - unit_cost) / list_price.
+      - name: is_active
+        description: 1 if currently sold.
+      - name: units_sold
+        description: Lifetime units sold.
+      - name: orders
+        description: Completed orders containing the product.
+      - name: net_revenue
+        description: Lifetime net revenue, KES.
+      - name: gross_profit
+        description: Lifetime gross profit, KES.
+
+  - name: mart_monthly_revenue
+    description: >
+      Monthly KPI table: revenue, orders, AOV, margin, new vs returning customers and revenue,
+      promo share, returns and MoM / YoY growth. Grain: one row per month.
+    columns:
+      - name: order_month
+        description: First day of the month.
+        tests: [unique, not_null]
+      - name: orders
+        description: Completed orders.
+      - name: active_customers
+        description: Distinct customers with >= 1 completed order in the month.
+      - name: new_customers
+        description: Customers whose first completed order was in the month.
+      - name: returning_customers
+        description: Active customers acquired in an earlier month.
+        tests: [non_negative]
+      - name: gross_revenue
+        description: Revenue before discounts, KES.
+      - name: discounts
+        description: Promo discounts, KES.
+      - name: net_revenue
+        description: Revenue after discounts, KES.
+        tests: [not_null, non_negative]
+      - name: gross_profit
+        description: Net revenue minus COGS, KES.
+      - name: gross_margin_pct
+        description: gross_profit / net_revenue.
+      - name: aov
+        description: Average order value = net_revenue / orders, KES.
+      - name: new_customer_revenue
+        description: Revenue from customers acquired in the month.
+      - name: returning_customer_revenue
+        description: Revenue from customers acquired earlier.
+      - name: returning_revenue_share
+        description: returning_customer_revenue / net_revenue.
+        tests:
+          - value_between:
+              arguments: {min_value: 0, max_value: 1}
+      - name: promo_order_share
+        description: Share of completed orders that used a promo code.
+      - name: returned_orders
+        description: Orders returned (refunded).
+      - name: returned_revenue
+        description: Net value of returned orders, KES.
+      - name: cancelled_orders
+        description: Orders cancelled before fulfilment.
+      - name: return_rate
+        description: returned / (completed + returned).
+      - name: revenue_mom_growth
+        description: Month-over-month net revenue growth.
+      - name: revenue_yoy_growth
+        description: Year-over-year net revenue growth (NULL in the first 12 months).
+
+  - name: mart_cohort_retention
+    description: >
+      Monthly acquisition-cohort retention. Grain: cohort_month x months_since_first_order.
+      Retention = customers with >= 1 completed order in that month / cohort size.
+    tests:
+      - unique_combination:
+          arguments:
+            columns: ['cohort_month', 'months_since_first_order']
+    columns:
+      - name: cohort_month
+        description: Month of the customers' first completed order.
+        tests: [not_null]
+      - name: months_since_first_order
+        description: 0 = acquisition month.
+        tests: [not_null, non_negative]
+      - name: cohort_size
+        description: Customers in the cohort.
+      - name: active_customers
+        description: Cohort customers with a completed order in this month.
+      - name: retention_rate
+        description: active_customers / cohort_size.
+        tests:
+          - not_null
+          - value_between:
+              arguments: {min_value: 0, max_value: 1}
+      - name: net_revenue
+        description: Cohort net revenue in this month, KES.
+      - name: revenue_per_cohort_customer
+        description: net_revenue / cohort_size (cumulate for LTV curves).
+
+  - name: mart_channel_performance
+    description: >
+      Monthly acquisition-channel economics. Grain: month x channel.
+      CAC = marketing_spend / new_customers. ROAS = net_revenue / marketing_spend.
+      first_order_ROAS uses only acquisition-order revenue (stricter payback view).
+    columns:
+      - name: channel_month_id
+        description: Surrogate key `YYYY-MM-DD|channel`.
+        tests: [unique, not_null]
+      - name: month
+        description: First day of the month.
+        tests: [not_null]
+      - name: channel
+        description: web / app / store.
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['web', 'app', 'store']
+      - name: orders
+        description: Completed orders in the channel.
+      - name: active_customers
+        description: Distinct purchasing customers.
+      - name: new_customers
+        description: Customers whose first completed order was in this channel and month.
+      - name: net_revenue
+        description: Net revenue, KES.
+      - name: first_order_revenue
+        description: Net revenue from acquisition orders only, KES.
+      - name: gross_profit
+        description: Gross profit, KES.
+      - name: marketing_spend
+        description: Paid media spend, KES.
+        tests: [non_negative]
+      - name: cac
+        description: Customer acquisition cost, KES.
+        tests: [non_negative]
+      - name: roas
+        description: Return on ad spend (all channel revenue / spend).
+      - name: first_order_roas
+        description: Acquisition-order revenue / spend.
+      - name: aov
+        description: Average order value in the channel, KES.
+
+  - name: mart_customer_rfm
+    description: >
+      Recency-Frequency-Monetary scoring for every purchasing customer as of `var('analysis_date')`.
+      R and M are quintiles (5 = best); F uses fixed thresholds (1, 2, 3-4, 5-9, 10+ orders)
+      because order counts are heavily tied. Segments come from the `rfm_segment` macro.
+    columns:
+      - name: customer_id
+        description: Customer key.
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_customers')
+                field: customer_id
+      - name: region
+        description: Home region.
+      - name: county_name
+        description: Home county.
+      - name: acquisition_channel
+        description: Channel of first order.
+      - name: cohort_month
+        description: Acquisition month.
+      - name: last_order_date
+        description: Most recent completed order.
+      - name: recency_days
+        description: Days from last order to analysis_date.
+        tests: [non_negative]
+      - name: frequency
+        description: Completed orders.
+      - name: monetary
+        description: Lifetime net revenue, KES.
+      - name: r_score
+        description: Recency score 1-5.
+        tests:
+          - value_between:
+              arguments: {min_value: 1, max_value: 5}
+      - name: f_score
+        description: Frequency score 1-5.
+        tests:
+          - value_between:
+              arguments: {min_value: 1, max_value: 5}
+      - name: m_score
+        description: Monetary score 1-5.
+        tests:
+          - value_between:
+              arguments: {min_value: 1, max_value: 5}
+      - name: rfm_code
+        description: Concatenated scores, e.g. "545".
+      - name: rfm_segment
+        description: Named segment.
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Champions', 'Loyal Customers', 'New Customers', 'Potential Loyalists', 'Needs Attention', 'Cannot Lose Them', 'At Risk', 'Hibernating', 'Lost']
+
+  - name: mart_sales_by_county
+    description: Completed-order sales by month x county x channel x category; powers the Tableau map and category views.
+    tests:
+      - unique_combination:
+          arguments:
+            columns: ['order_month', 'county_name', 'channel', 'category']
+    columns:
+      - name: order_month
+        description: First day of the month.
+        tests: [not_null]
+      - name: region
+        description: Region (former province).
+      - name: county_name
+        description: County.
+        tests: [not_null]
+      - name: channel
+        description: Sales channel.
+      - name: category
+        description: Product category.
+      - name: orders
+        description: Distinct orders containing the category.
+      - name: units
+        description: Units sold.
+      - name: net_revenue
+        description: Net revenue, KES.
+        tests: [non_negative]
+      - name: gross_profit
+        description: Gross profit, KES.

@@ -1,0 +1,42 @@
+version: 2
+
+seeds:
+  - name: county_regions
+    description: >
+      All 47 Kenyan counties (official county codes 1-47) mapped to their former province,
+      used as the reporting `region`. `county_key` is the lower-cased join key produced by staging.
+    columns:
+      - name: county_code
+        description: Official county code (1 = Mombasa ... 47 = Nairobi).
+        tests: [unique, not_null]
+      - name: county_key
+        description: Lower-cased county name used to join cleaned source data.
+        tests: [unique, not_null]
+      - name: county_name
+        description: Display name of the county.
+        tests: [unique, not_null]
+      - name: region
+        description: Former province (Nairobi, Central, Coast, Eastern, North Eastern, Nyanza, Rift Valley, Western).
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Nairobi', 'Central', 'Coast', 'Eastern', 'North Eastern', 'Nyanza', 'Rift Valley', 'Western']
+
+  - name: promo_codes
+    description: Marketing-approved promo codes with discount and validity window.
+    columns:
+      - name: promo_code
+        description: Upper-case promo code as typed at checkout.
+        tests: [unique, not_null]
+      - name: campaign
+        description: Campaign the code belongs to.
+      - name: discount_pct
+        description: Fractional discount applied to every line of the order.
+        tests:
+          - value_between:
+              arguments: {min_value: 0, max_value: 0.5}
+      - name: valid_from
+        description: First day the code is valid (inclusive).
+      - name: valid_to
+        description: Last day the code is valid (inclusive).

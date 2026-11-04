@@ -1,0 +1,14 @@
+# Core pipeline (tested with Python 3.11-3.13)
+dbt-core>=1.10,<2.0
+dbt-duckdb>=1.9,<2.0
+duckdb>=1.1,<2.0
+numpy>=1.26,<3.0
+pandas>=2.2,<4.0
+matplotlib>=3.8,<4.0
+
+# Optional: Azure landing zone upload (scripts/load_to_azure_blob.py)
+azure-storage-blob>=12.19,<13.0
+
+# Optional: Azure warehouse targets -- install the one you use (not needed locally/CI)
+# dbt-sqlserver>=1.9     # Azure SQL Database   (target: azure)
+# dbt-synapse>=1.8       # Azure Synapse        (target: synapse)

@@ -1,0 +1,201 @@
+customer_id,first_name,last_name,email,phone,county,signup_date,signup_channel,marketing_opt_in,updated_at
+C000081,Peter,Mohamed,PETER.MOHAMED80@EXAMPLE.CO.KE,+254-716854980,Nairobi,2024-01-05,web,True,2024-01-05 20:09:50
+C000124,James,Hassan,james.hassan123@example.co.ke,+254-715969117,Trans Nzoia,2024-01-07, web,True,2024-01-07 07:41:12
+C000219,Atieno,Omondi,,+254 745 172 270,Kisumu,2024-01-12,app,True,2024-01-12 16:08:09
+C000219,Atieno,Omondi,,+254 745 172 270,Kisumu,2024-01-12,app,True,2026-01-05 08:00:00
+C000320,Amina,Koech,amina.koech319@example.co.ke,254769257129,Nairobi,2024-01-18,store ,True,2024-01-18 15:49:18
+C000351,Ian,Omondi,ian.omondi350@example.co.ke,254181002168,Kajiado,2024-01-20,app,True,2024-01-20 02:03:56
+C000449,Wafula,Omondi,wafula.omondi448@example.co.ke,0734986469,Nairobi,2024-01-27,store,True,2024-01-27 08:44:26
+C000829,Fatuma,Juma,fatuma.juma828@example.co.ke,0714278232,Samburu,2024-02-16,web,False,2024-02-16 18:38:02
+C000928,Esther,Onyango,esther.onyango927@example.co.ke,254785269624,Meru,2024-02-22,app,True,2024-02-22 20:43:26
+C001047,Wanjiru,Mbugua,wanjiru.mbugua1046@example.co.ke,+254-778952416,Nairobi,2024-02-28,web,True,2024-02-28 17:29:23
+C001125,Njeri,Mwangi,njeri.mwangi1124@example.co.ke,+254 785 138 160,Nairobi,2024-03-03,web,True,2024-03-03 15:50:51
+C001138,Ann,Ochieng,ann.ochieng1137@example.co.ke,0781560465, Nyeri,2024-03-03,web,True,2024-03-03 05:36:17
+C001149,Wekesa,Koech,wekesa.koech1148@example.co.ke,254715300316,Mombasa,2024-03-04,web,False,2024-03-04 04:36:52
+C001154,Amina,Ochieng,amina.ochieng1153@example.co.ke,0738223357,Makueni,2024-03-04,app,False,2024-03-04 07:05:54
+C001175,Kiprono,Nyaga,kiprono.nyaga1174@example.co.ke,+254-767724226,Kisii,2024-03-05,web,True,2024-03-05 10:52:14
+C001273,Sharon,Otieno,sharon.otieno1272@example.co.ke,0131757477,Kisumu,2024-03-10,web,True,2024-03-10 01:42:57
+C001281,Caroline,Mohamed,caroline.mohamed1280@example.co.ke,+254 173 909 394,Nairobi,2024-03-10,web,False,2024-03-10 16:03:04
+C001646,Chebet,Kamau,CHEBET.KAMAU1645@EXAMPLE.CO.KE,+254-731512902,Kiambu,2024-03-30,web,True,2024-03-30 09:22:05
+C001744,Moraa,Onyango,moraa.onyango1743@example.co.ke,0768967620,Nairobi,2024-04-04,web,True,2024-04-04 08:56:21
+C001915,Njeri,Kamau,njeri.kamau1914@example.co.ke,0712462316, Bomet,2024-04-12,web,True,2024-04-12 01:59:20
+C001922,Collins,Kipchoge,collins.kipchoge1921@example.co.ke,254755885263,Kiambu,2024-04-13,web,True,2024-04-13 08:36:38
+C001932,Mary,Omondi,MARY.OMONDI1931@EXAMPLE.CO.KE,+254-794186511,Mombasa,2024-04-13,web,True,2024-04-13 20:46:24
+C001934,Omondi,Abdi,omondi.abdi1933@example.co.ke,+254 171 289 443,Kericho,2024-04-14,store,False,2024-04-14 11:35:37
+C001981,Muthoni,Wanjiku,muthoni.wanjiku1980@example.co.ke,254748542637,Kiambu,2024-04-16,store,True,2024-04-16 08:35:50
+C002057,James,Omondi,james.omondi2056@example.co.ke,+254-798638145,Nairobi,2024-04-19,web ,True,2024-04-19 18:33:51
+C002066,Kiprono,Gitau,kiprono.gitau2065@example.co.ke,+254 745 582 643,NAIROBI,2024-04-20,store,True,2024-04-20 18:25:25
+C002084,Peter,Gitau,peter.gitau2083@example.co.ke,254710172949,Kiambu,2024-04-21,web,True,2024-04-21 13:10:36
+C002101,Ann,Muriuki,ann.muriuki2100@example.co.ke,+254-766948233,Nairobi,2024-04-21,web,False,2024-04-21 05:47:26
+C002124,Chebet,Makori,chebet.makori2123@example.co.ke,+254 740 821 039,Siaya,2024-04-23,web,True,2024-04-23 03:39:30
+C002164,Ian,Ochieng,ian.ochieng2163@example.co.ke,0721766051,Kisumu,2024-04-24,web,False,2024-04-24 07:36:28
+C002165,Achieng,Ndungu,achieng.ndungu2164@example.co.ke,254797832613,Nairobi,2024-04-24,app,False,2024-04-24 13:49:32
+C002377,Mwangi,Ndungu,mwangi.ndungu2376@example.co.ke,+254-745830903,,2024-05-03,web,True,2024-05-03 04:58:16
+C002426,Omondi,Barasa,omondi.barasa2425@example.co.ke,+254 154 409 050,Kiambu,2024-05-07,store,False,2024-05-07 05:30:13
+C002494,Njeri,Gitau,njeri.gitau2493@example.co.ke,+254 763 896 138,Kajiado,2024-05-10,app,True,2024-05-10 06:34:13
+C002538,Wekesa,Simiyu,wekesa.simiyu2537@example.co.ke,0755700211,Kilifi,2024-05-11,store,False,2024-05-11 20:37:17
+C002764,Halima,Kipchoge,halima.kipchoge2763@example.co.ke,+254 751 777 575,Nairobi,2024-05-23,store,False,2024-05-23 14:00:12
+C002871,Omondi,Makori,omondi.makori2870@example.co.ke,+254-136832504,Wajir,2024-05-28,app,False,2024-05-28 06:59:52
+C002876,Faith,Owino,faith.owino2875@example.co.ke,0740962885,Nairobi,2024-05-28,app,True,2024-05-28 22:48:54
+C003144,Faith,Waweru,faith.waweru3143@example.co.ke,254734683481,Nakuru,2024-06-08,app,False,2024-06-08 07:11:50
+C003339,Kibet,Makori,kibet.makori3338@example.co.ke,+254 724 032 703,Kiambu,2024-06-17,web,False,2024-06-17 16:17:27
+C003407,Atieno,Muriuki,atieno.muriuki3406@example.co.ke,+254-747708940,Uasin Gishu,2024-06-20,app,False,2024-06-20 15:04:02
+C003429,Hassan,Simiyu,hassan.simiyu3428@example.co.ke,+254 756 846 292,Uasin Gishu,2024-06-21,store,True,2024-06-21 08:08:52
+C003445,Achieng,Onyango,achieng.onyango3444@example.co.ke,+254 796 266 198,Meru,2024-06-22,app,True,2024-06-22 04:45:18
+C003487,Wanjiru,Owino,wanjiru.owino3486@example.co.ke,+254-729047594,Mombasa,2024-06-24,store,False,2024-06-24 17:12:24
+C003534,Zawadi,Waweru,zawadi.waweru3533@example.co.ke,0795964256,Nairobi,2024-06-25,app,True,2024-06-25 00:02:39
+C003617,Sharon,Mutua,SHARON.MUTUA3616@EXAMPLE.CO.KE,+254 723 905 436,Nairobi,2024-06-29,web,False,2024-06-29 11:40:32
+C003706,Ali,Barasa,ali.barasa3705@example.co.ke,+254-711824022,Mombasa,2024-07-02,app,True,2024-07-02 03:06:55
+C003718,Joy,Hassan,joy.hassan3717@example.co.ke,+254-728208488,Narok,2024-07-03,web,True,2024-07-03 00:07:20
+C003748,Zawadi,Barasa,zawadi.barasa3747@example.co.ke,254129000908,Trans Nzoia,2024-07-05,web,False,2024-07-05 22:53:22
+C003755,Mwangi,Otieno,mwangi.otieno3754@example.co.ke,+254-770302619,Nairobi,2024-07-05,web,True,2024-07-05 00:55:10
+C003804,Omondi,Ochieng,omondi.ochieng3803@example.co.ke,0720489086,Kwale,2024-07-07,web,False,2024-07-07 08:34:14
+C003861,Nyambura,Kariuki,nyambura.kariuki3860@example.co.ke,+254-124720090,Siaya,2024-07-10,app,True,2024-07-10 03:59:57
+C003868,Jepkosgei,Simiyu,jepkosgei.simiyu3867@example.co.ke,254748368045,Nakuru,2024-07-11,web,True,2024-07-11 17:20:35
+C003942,Otieno,Mohamed,otieno.mohamed3941@example.co.ke,+254-772567544,GARISSA,2024-07-14,APP,True,2024-07-14 00:01:32
+C003942,Otieno,Mohamed,otieno.mohamed3941@example.co.ke,+254-772567544,GARISSA,2024-07-14,APP,True,2026-01-05 08:00:00
+C004039,Kariuki,Muriuki,kariuki.muriuki4038@example.co.ke,0137988898,Kitui,2024-07-18,web,True,2024-07-18 18:48:07
+C004056,Achieng,Abdi,,+254 781 075 720,Nairobi,2024-07-19,store,True,2024-07-19 01:26:55
+C004083,Sharon,Otieno,,254759387989,Machakos,2024-07-20,web,True,2024-07-20 05:51:39
+C004093,Ochieng,Rotich,ochieng.rotich4092@example.co.ke,+254-159332497,Meru,2024-07-20,store,True,2024-07-20 16:14:35
+C004108,Faith,Hassan,faith.hassan4107@example.co.ke,254747617026,Nairobi,2024-07-21,web,False,2024-07-21 17:45:01
+C004115,Kamau,Simiyu,kamau.simiyu4114@example.co.ke,254754624543,Murang'a,2024-07-21,app,False,2024-07-21 13:23:28
+C004147,Fatuma,Mutua,fatuma.mutua4146@example.co.ke,254736342698,Kirinyaga,2024-07-23,app,False,2024-07-23 17:52:56
+C004199,Mercy,Kariuki,mercy.kariuki4198@example.co.ke,0753628001,Homa Bay ,2024-07-25,store,True,2024-07-25 03:46:00
+C004226,Victor,Nyamweya,victor.nyamweya4225@example.co.ke,+254 783 261 029,Meru,2024-07-26,app,True,2024-07-26 08:56:01
+C004259,Wambui,Ndungu,wambui.ndungu4258@example.co.ke,+254 761 106 748,Bungoma,2024-07-28,app,True,2024-07-28 04:22:55
+C004276,Wairimu,Ochieng,wairimu.ochieng4275@example.co.ke,254729365227,Uasin Gishu,2024-07-28,Store,False,2024-07-28 07:11:37
+C004476,Ali,Mohamed,ali.mohamed4475@example.co.ke,254710283493,Meru,2024-08-05,store,False,2024-08-05 22:11:40
+C004629,Ochieng,Koech,ochieng.koech4628@example.co.ke,+254 763 576 473,Nairobi,2024-08-11,app,True,2024-08-11 12:14:36
+C004657,Dennis,Barasa,dennis.barasa4656@example.co.ke,+254 761 999 589,Nairobi,2024-08-12,web,True,2024-08-12 09:00:28
+C004856,Esther,Kipchoge,esther.kipchoge4855@example.co.ke,+254-734276453,Nairobi,2024-08-21,web ,False,2024-08-21 07:23:16
+C004870,Caroline,Mwangi,caroline.mwangi4869@example.co.ke,+254 762 032 089,,2024-08-22,app,True,2024-08-22 01:22:52
+C004883,Dennis,Mohamed,dennis.mohamed4882@example.co.ke,254168060635,Mombasa,2024-08-22,app,True,2024-08-22 13:57:25
+C004965,Wafula,Odhiambo,wafula.odhiambo4964@example.co.ke,+254 766 599 703,BOMET,2024-08-25,store,False,2024-08-25 20:48:37
+C005387,Kibet,Makori,kibet.makori5386@example.co.ke,0718857922,Nairobi,2024-09-12,store,False,2024-09-12 07:34:49
+C005391,Grace,Mbugua,grace.mbugua5390@example.co.ke,+254-750741302,Elgeyo Marakwet,2024-09-12,store,True,2024-09-12 01:19:44
+C005401,Ann,Nyaga,ann.nyaga5400@example.co.ke,+254-785744844,Kiambu,2024-09-13,store,True,2024-09-13 05:52:31
+C005448,Wanjiru,Onyango,wanjiru.onyango5447@example.co.ke,254117647184,Kisii,2024-09-14,app,True,2024-09-14 03:21:35
+C005492,Nafula,Ndungu,nafula.ndungu5491@example.co.ke,0741176237,Turkana,2024-09-16,web,True,2024-09-16 01:21:38
+C005579,Grace,Mutua,GRACE.MUTUA5578@EXAMPLE.CO.KE,0785013263,Bungoma,2024-09-19,web,True,2024-09-19 12:05:07
+C005806,Atieno,Odhiambo,atieno.odhiambo5805@example.co.ke,254730497364,Kisii,2024-09-29,WEB,False,2024-09-29 03:45:21
+C005889,Kibet,Nyaga,kibet.nyaga5888@example.co.ke,+254-748129469,Uasin Gishu,2024-10-03,app,False,2024-10-03 14:06:09
+C005918,Caroline,Mohamed,caroline.mohamed5917@example.co.ke,0759188455,Nairobi,2024-10-04,app,True,2024-10-04 17:14:03
+C006016,Mercy,Rotich,mercy.rotich6015@example.co.ke,254160290406,Garissa ,2024-10-08,store,True,2024-10-08 18:48:34
+C006131,Wanjiru,Wanjiku,wanjiru.wanjiku6130@example.co.ke,0766547371,Nairobi,2024-10-12,web,True,2024-10-12 18:36:14
+C006232,Otieno,Otieno,otieno.otieno6231@example.co.ke,0754077458,Makueni,2024-10-17,app,True,2024-10-17 13:54:30
+C006272,Mutua,Omondi,mutua.omondi6271@example.co.ke,254740346183,Nakuru,2024-10-18,app,True,2024-10-18 10:27:19
+C006326,Sharon,Nyamweya,sharon.nyamweya6325@example.co.ke,+254-756890987,Uasin Gishu,2024-10-20,app,True,2024-10-20 06:43:35
+C006329,Lucy,Onyango,lucy.onyango6328@example.co.ke,+254-752307629,Mombasa,2024-10-21,app,True,2024-10-21 18:19:31
+C006334,Omondi,Wekesa,,+254 751 779 613,Mandera,2024-10-21,store ,True,2024-10-21 01:28:09
+C006452,Chebet,Mbugua,chebet.mbugua6451@example.co.ke,+254-112940962,Nakuru,2024-10-25,app ,False,2024-10-25 04:18:55
+C006464,Wairimu,Otieno,wairimu.otieno6463@example.co.ke,0116220279,Kitui,2024-10-25,web ,True,2024-10-25 20:31:19
+C006504,Halima,Odhiambo,halima.odhiambo6503@example.co.ke,+254 724 887 513,Kisumu,2024-10-26,Web,False,2024-10-26 21:58:20
+C006681,Wekesa,Mbugua,wekesa.mbugua6680@example.co.ke,254763869051,Nairobi,2024-11-02,web,False,2024-11-02 10:30:57
+C006687,Jepkosgei,Nyaga,jepkosgei.nyaga6686@example.co.ke,0116440260,Nairobi,2024-11-02,app,True,2024-11-02 20:43:10
+C006769,Mwangi,Gitau,mwangi.gitau6768@example.co.ke,+254 731 920 035,Narok,2024-11-05,store,True,2024-11-05 02:02:44
+C006800,Hassan,Odhiambo,hassan.odhiambo6799@example.co.ke,+254-762056645,Kisumu,2024-11-06,web,True,2024-11-06 00:06:12
+C006904,John,Mohamed,john.mohamed6903@example.co.ke,254790705193,Makueni,2024-11-10,Store,True,2024-11-10 18:45:48
+C007007,Chebet,Kariuki,chebet.kariuki7006@example.co.ke,+254-157835990,Nakuru,2024-11-13,web ,True,2024-11-13 14:11:25
+C007013,Faith,Langat,faith.langat7012@example.co.ke,0749723324,Murang'a,2024-11-14,web,True,2024-11-14 00:28:20
+C007026,Fatuma,Hassan,fatuma.hassan7025@example.co.ke,0778755247,Bungoma,2024-11-14,app,True,2024-11-14 02:32:09
+C007146,Amina,Waweru,amina.waweru7145@example.co.ke,+254-777818217,Nairobi,2024-11-19,web,True,2024-11-19 10:06:33
+C007180,Otieno,Muriuki,otieno.muriuki7179@example.co.ke,0755211924,Nandi,2024-11-20,web,True,2024-11-20 11:44:42
+C007293,Chebet,Kiprotich,chebet.kiprotich7292@example.co.ke,0732484815,Wajir,2024-11-25,web,True,2024-11-25 20:50:05
+C007348,Dennis,Koech,dennis.koech7347@example.co.ke,0761558480,NAKURU,2024-11-26,app,True,2024-11-26 10:08:17
+C007357,John,Simiyu,john.simiyu7356@example.co.ke,254726224284,Garissa,2024-11-27,web,True,2024-11-27 19:23:07
+C007562,Dennis,Makori,dennis.makori7561@example.co.ke,+254-768740602,Kisii,2024-12-02,app,True,2024-12-02 17:00:08
+C007707,Akinyi,Wekesa,AKINYI.WEKESA7706@EXAMPLE.CO.KE,0732460851,Uasin Gishu,2024-12-07,store,True,2024-12-07 17:18:14
+C007809,Wekesa,Juma,wekesa.juma7808@example.co.ke,0798559447,Nairobi,2024-12-11,app,False,2024-12-11 19:30:47
+C007821,Njeri,Koech,,+254 724 421 061,Makueni,2024-12-12,store,True,2024-12-12 21:04:32
+C007850,Kariuki,Mwangi,kariuki.mwangi7849@example.co.ke,+254 779 708 796,Mombasa,2024-12-12,APP,False,2024-12-12 04:04:53
+C008002,Mutua,Mbugua,mutua.mbugua8001@example.co.ke,+254 742 154 402,Nairobi,2024-12-18,store,True,2024-12-18 20:29:19
+C008031,Amina,Gitau,amina.gitau8030@example.co.ke,+254-128833304,Mombasa,2024-12-19,app,True,2024-12-19 06:20:28
+C008062,Nduta,Rotich,nduta.rotich8061@example.co.ke,254794604268,Kilifi,2024-12-19,store,True,2024-12-19 13:19:37
+C008088,Fatuma,Ochieng,FATUMA.OCHIENG8087@EXAMPLE.CO.KE,+254 768 375 771,Narok,2024-12-20,app,False,2024-12-20 10:46:01
+C008226,Kevin,Juma,kevin.juma8225@example.co.ke,254117609808,Nairobi ,2024-12-25,app,True,2024-12-25 16:29:13
+C008487,Achieng,Owino,,+254-721278025,Busia,2025-01-02,store,True,2025-01-02 11:00:02
+C008750,Mercy,Simiyu,MERCY.SIMIYU8749@EXAMPLE.CO.KE,0792709445,Nairobi,2025-01-12,web,False,2025-01-12 10:51:26
+C008892,Peter,Otieno,peter.otieno8891@example.co.ke,+254-150546002,Nairobi,2025-01-19,app,False,2025-01-19 00:39:05
+C008967,Amina,Koech,amina.koech8966@example.co.ke,+254-799725334,Machakos,2025-01-21,store,False,2025-01-21 23:53:21
+C009093,Achieng,Odhiambo,achieng.odhiambo9092@example.co.ke,254773575973,Siaya,2025-01-26,store,False,2025-01-26 22:08:22
+C009137,James,Makori,james.makori9136@example.co.ke,0759072768,Nairobi,2025-01-28,app,True,2025-01-28 16:25:12
+C009240,Chebet,Wekesa,chebet.wekesa9239@example.co.ke,+254-776957354,Kilifi,2025-02-01,Web,True,2025-02-01 22:40:41
+C009269,Halima,Odhiambo,halima.odhiambo9268@example.co.ke,254123300107,,2025-02-02,web,False,2025-02-02 04:08:52
+C009401,John,Odhiambo,john.odhiambo9400@example.co.ke,+254-155446674,Nairobi,2025-02-09,web,False,2025-02-09 20:30:00
+C009518,Nyambura,Cheruiyot,nyambura.cheruiyot9517@example.co.ke,+254 783 286 502,Nairobi,2025-02-13,app,False,2025-02-13 11:53:55
+C009519,Joy,Muriuki,joy.muriuki9518@example.co.ke,254188300926,Migori,2025-02-13,app,False,2025-02-13 08:40:49
+C009600,Kariuki,Mohamed,kariuki.mohamed9599@example.co.ke,+254 733 126 759,Murang'a,2025-02-17,APP,True,2025-02-17 12:31:16
+C009710,Nyambura,Otieno,nyambura.otieno9709@example.co.ke,0739531362,Migori,2025-02-21,app,True,2025-02-21 13:56:47
+C009848,Peter,Otieno,peter.otieno9847@example.co.ke,+254 763 917 574,Kirinyaga,2025-02-27,web,True,2025-02-27 05:18:53
+C009938,Jepkosgei,Odhiambo,jepkosgei.odhiambo9937@example.co.ke,0148614577, Kajiado,2025-03-02,app,True,2025-03-02 14:50:09
+C010020,Wekesa,Makori,wekesa.makori10019@example.co.ke,+254 191 271 518, Nakuru,2025-03-04,web,False,2025-03-04 21:12:26
+C010164,Muthoni,Odhiambo,muthoni.odhiambo10163@example.co.ke,+254 791 808 244,Nakuru,2025-03-09,APP,False,2025-03-09 06:52:16
+C010227,Fatuma,Kiprotich,fatuma.kiprotich10226@example.co.ke,254758778939,Trans Nzoia,2025-03-11,app,False,2025-03-11 00:23:40
+C010281,Nafula,Gitau,nafula.gitau10280@example.co.ke,254153064982,Narok,2025-03-13,store,False,2025-03-13 03:48:22
+C010368,Wairimu,Abdi,wairimu.abdi10367@example.co.ke,+254-773546680,Nyamira,2025-03-16,web,False,2025-03-16 03:29:21
+C010446,Kerubo,Cheruiyot,kerubo.cheruiyot10445@example.co.ke,+254-741837031,KIAMBU,2025-03-19,app,True,2025-03-19 15:55:45
+C010528,Akinyi,Mwangi,akinyi.mwangi10527@example.co.ke,254125699180,Nyamira,2025-03-22,store,True,2025-03-22 13:26:57
+C010635,Nafula,Mohamed,nafula.mohamed10634@example.co.ke,254181431752,Mandera,2025-03-26,APP,True,2025-03-26 21:32:13
+C010636,Ochieng,Kipchoge,ochieng.kipchoge10635@example.co.ke,+254-740985293,Embu,2025-03-26,app,True,2025-03-26 07:32:11
+C010974,Ian,Mutua,ian.mutua10973@example.co.ke,254792752001,Marsabit,2025-04-07,app,False,2025-04-07 06:22:14
+C011044,Lucy,Abdi,lucy.abdi11043@example.co.ke,+254-743065690,Nairobi,2025-04-09,app,True,2025-04-09 14:35:10
+C011143,Achieng,Njoroge,achieng.njoroge11142@example.co.ke,0137356847,Homa Bay,2025-04-13,web,False,2025-04-13 06:01:52
+C011158,Sharon,Nyamweya,sharon.nyamweya11157@example.co.ke,254788733775,Nairobi,2025-04-13,app,False,2025-04-13 07:43:31
+C011188,Mary,Kiprotich,mary.kiprotich11187@example.co.ke,254731913934,Meru,2025-04-14,store,True,2025-04-14 15:55:56
+C011275,Nafula,Wekesa,,0743982389,Nyamira,2025-04-17,app,False,2025-04-17 22:35:09
+C011492,Chebet,Muriuki,chebet.muriuki11491@example.co.ke,0782225157,Nakuru,2025-04-25,store,True,2025-04-25 13:19:43
+C011541,Omondi,Makori,omondi.makori11540@example.co.ke,+254 766 894 442,,2025-04-26,web,True,2025-04-26 21:48:06
+C011541,Omondi,Makori,omondi.makori11540@example.co.ke,+254 766 894 442,,2025-04-26,web,True,2026-01-05 08:00:00
+C011625,Kiprono,Kariuki,KIPRONO.KARIUKI11624@EXAMPLE.CO.KE,0739996523,Mombasa,2025-04-29,app,False,2025-04-29 04:18:53
+C011726,Kerubo,Nyaga,kerubo.nyaga11725@example.co.ke,0777628788,Bungoma ,2025-05-03,app,True,2025-05-03 14:44:43
+C011773,Akinyi,Abdi,akinyi.abdi11772@example.co.ke,0728863592,Nairobi,2025-05-05,app,True,2025-05-05 00:53:12
+C011872,Wafula,Waweru,wafula.waweru11871@example.co.ke,0755213746,Nairobi,2025-05-08, app,False,2025-05-08 03:24:54
+C011960,Otieno,Juma,otieno.juma11959@example.co.ke,+254-722245150,MACHAKOS,2025-05-11,web,False,2025-05-11 10:15:16
+C011971,Peter,Otieno,peter.otieno11970@example.co.ke,+254-792424278,Vihiga,2025-05-11, web,False,2025-05-11 05:45:44
+C011974,Esther,Njoroge,esther.njoroge11973@example.co.ke,+254 757 420 240,Kisumu ,2025-05-11,app,False,2025-05-11 13:21:09
+C012019,Wanjiru,Nyaga,wanjiru.nyaga12018@example.co.ke,254743645167,Kitui,2025-05-13,web,True,2025-05-13 14:36:04
+C012139,Akinyi,Mbugua,akinyi.mbugua12138@example.co.ke,+254 148 752 534,Kajiado,2025-05-17,App,True,2025-05-17 04:59:58
+C012192,Wanjiru,Hassan,wanjiru.hassan12191@example.co.ke,+254 737 799 611,Kirinyaga,2025-05-18,app,True,2025-05-18 04:43:31
+C012200,Amina,Mutua,amina.mutua12199@example.co.ke,254793994036, Nyandarua,2025-05-19,app,True,2025-05-19 06:18:48
+C012482,Mary,Gitau,mary.gitau12481@example.co.ke,0774696593,Kwale,2025-05-27,web,False,2025-05-27 12:11:23
+C012515,Brian,Kariuki,brian.kariuki12514@example.co.ke,254722173931, Nyamira,2025-05-28,web,True,2025-05-28 00:25:30
+C012537,Atieno,Juma,atieno.juma12536@example.co.ke,+254-738183329,KIRINYAGA,2025-05-29,web,False,2025-05-29 07:34:07
+C012719,Mercy,Makori,mercy.makori12718@example.co.ke,0783940767, Nairobi,2025-06-04,store,True,2025-06-04 06:50:46
+C012791,Caroline,Mutua,caroline.mutua12790@example.co.ke,0760527846,Kajiado,2025-06-06,store,True,2025-06-06 05:15:27
+C012809,Kariuki,Mutua,kariuki.mutua12808@example.co.ke,254179616259,Kajiado,2025-06-07,app,False,2025-06-07 13:35:40
+C012837,Njeri,Wekesa,njeri.wekesa12836@example.co.ke,+254 727 136 580,Kilifi,2025-06-08,app,True,2025-06-08 11:04:06
+C012926,Ian,Langat,ian.langat12925@example.co.ke,+254 142 974 321,Wajir,2025-06-11,STORE,False,2025-06-11 07:48:11
+C013083,Ochieng,Omondi,ochieng.omondi13082@example.co.ke,+254-121222780,Vihiga,2025-06-15,web,True,2025-06-15 05:35:07
+C013231,John,Hassan,john.hassan13230@example.co.ke,254761679769,Nakuru,2025-06-20,app,True,2025-06-20 02:17:27
+C013241,Akinyi,Cheruiyot,akinyi.cheruiyot13240@example.co.ke,0723244672,Kericho,2025-06-20,app,True,2025-06-20 21:01:27
+C013601,Wairimu,Wanjiku,wairimu.wanjiku13600@example.co.ke,254731312272, Kitui,2025-07-02,store,False,2025-07-02 15:48:49
+C013781,Kiprono,Cheruiyot,kiprono.cheruiyot13780@example.co.ke,0777192121,Bomet,2025-07-08,app,True,2025-07-08 18:49:48
+C013782,Mwende,Mbugua,,+254 760 977 294,Nairobi,2025-07-08,store,True,2025-07-08 01:05:16
+C014175,Collins,Kiprotich,collins.kiprotich14174@example.co.ke,254768197648,Kiambu,2025-07-20,web,False,2025-07-20 00:09:38
+C014252,Mwangi,Owino,mwangi.owino14251@example.co.ke,+254-721267611,Busia,2025-07-23,app,True,2025-07-23 01:58:37
+C014610,Mwende,Wekesa,mwende.wekesa14609@example.co.ke,+254-722617465,Uasin Gishu,2025-08-02,store,True,2025-08-02 08:04:00
+C014761,James,Abdi,james.abdi14760@example.co.ke,254754201508,Machakos,2025-08-07,store,False,2025-08-07 08:14:11
+C014984,Chebet,Ndungu,chebet.ndungu14983@example.co.ke,+254 776 266 628,Uasin Gishu,2025-08-15,web,False,2025-08-15 06:06:48
+C015335,Ann,Wekesa,ann.wekesa15334@example.co.ke,+254 797 828 945,Garissa,2025-08-26,app,True,2025-08-26 10:33:53
+C015354,Peter,Onyango,peter.onyango15353@example.co.ke,+254 728 162 702,Vihiga,2025-08-26,app,True,2025-08-26 02:49:17
+C015402,John,Gitau,john.gitau15401@example.co.ke,254732100900,Siaya,2025-08-28,store,False,2025-08-28 05:58:55
+C015554,Kariuki,Cheruiyot,kariuki.cheruiyot15553@example.co.ke,+254 799 444 569,Kiambu,2025-09-01,app ,False,2025-09-01 15:07:45
+C015656,Muthoni,Owino,muthoni.owino15655@example.co.ke,254716250274,Kitui,2025-09-04,app,True,2025-09-04 12:41:29
+C016289,Akinyi,Cheruiyot,akinyi.cheruiyot16288@example.co.ke,+254-722575934,Meru,2025-09-24,web,True,2025-09-24 15:34:51
+C016305,Otieno,Owino,otieno.owino16304@example.co.ke,+254-756823089,Migori,2025-09-25,app,True,2025-09-25 02:56:01
+C016415,Wambui,Kariuki,wambui.kariuki16414@example.co.ke,0738606853,TURKANA,2025-09-28,app,True,2025-09-28 09:19:28
+C016485,Ann,Nyaga,ann.nyaga16484@example.co.ke,+254-725954661,Nandi,2025-09-30,store,True,2025-09-30 06:38:03
+C016500,Otieno,Odhiambo,otieno.odhiambo16499@example.co.ke,+254-759353883,Homa Bay,2025-09-30,app,True,2025-09-30 11:01:41
+C016527,Esther,Muriuki,esther.muriuki16526@example.co.ke,+254 773 059 434,Embu,2025-10-01,app,True,2025-10-01 14:48:43
+C016600,Akinyi,Njoroge,akinyi.njoroge16599@example.co.ke,0733871439,Machakos,2025-10-03,web,False,2025-10-03 10:46:26
+C016784,Victor,Wanjiku,victor.wanjiku16783@example.co.ke,254711713092,Turkana,2025-10-09,Store,False,2025-10-09 18:12:19
+C016807,Lucy,Langat,lucy.langat16806@example.co.ke,0721817403,Bomet,2025-10-09,app,True,2025-10-09 10:14:28
+C017050,James,Langat,james.langat17049@example.co.ke,+254 761 391 836,Machakos,2025-10-17,web,True,2025-10-17 12:11:21
+C017139,Kevin,Owino,kevin.owino17138@example.co.ke,254116663444,Kilifi,2025-10-19,app,True,2025-10-19 21:34:29
+C017383,Moraa,Odhiambo,moraa.odhiambo17382@example.co.ke,0722368680,Mombasa,2025-10-27,web ,True,2025-10-27 03:50:22
+C017792,Sharon,Cheruiyot,sharon.cheruiyot17791@example.co.ke,+254-717767804,Mombasa,2025-11-07,app,True,2025-11-07 07:58:14
+C018104,Halima,Mwangi,halima.mwangi18103@example.co.ke,0733420381,Nakuru,2025-11-16,app,True,2025-11-16 08:15:25
+C018205,Wambui,Abdi,wambui.abdi18204@example.co.ke,254734384835,Taita Taveta,2025-11-19,web,True,2025-11-19 08:40:11
+C018398,Faith,Mbugua,FAITH.MBUGUA18397@EXAMPLE.CO.KE,+254 717 185 714,Kiambu ,2025-11-24,web,False,2025-11-24 09:13:00
+C019234,Achieng,Barasa,achieng.barasa19233@example.co.ke,+254-757231016, Meru,2025-12-13,web,True,2025-12-13 08:22:40

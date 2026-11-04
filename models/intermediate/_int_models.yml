@@ -1,0 +1,113 @@
+version: 2
+
+models:
+  - name: int_order_lines
+    description: >
+      One row per valid order line enriched with order context (customer, channel, status, month),
+      product attributes and cost. Missing product costs are estimated from the category's average
+      cost-to-price ratio and flagged with `is_cost_estimated`.
+    columns:
+      - name: order_item_id
+        description: Order line key.
+        tests: [unique, not_null]
+      - name: order_id
+        description: Parent order.
+        tests: [not_null]
+      - name: customer_id
+        description: Customer who placed the order.
+      - name: order_ts
+        description: Order timestamp.
+      - name: order_date
+        description: Order date.
+      - name: order_month
+        description: First day of the order month.
+      - name: channel
+        description: Sales channel of the order.
+      - name: order_status
+        description: Order status (completed / cancelled / returned).
+      - name: product_id
+        description: Product sold.
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_products')
+                field: product_id
+      - name: product_name
+        description: Product name.
+      - name: category
+        description: Product category.
+      - name: quantity
+        description: Units.
+      - name: unit_price
+        description: Price per unit, KES.
+      - name: gross_amount
+        description: quantity x unit_price.
+        tests: [non_negative]
+      - name: discount_amount
+        description: Promo discount on the line.
+      - name: net_amount
+        description: gross_amount - discount_amount.
+        tests: [not_null, non_negative]
+      - name: unit_cost
+        description: Unit cost actually used (master cost, or category-ratio estimate).
+        tests: [not_null]
+      - name: cogs
+        description: quantity x unit_cost.
+        tests: [non_negative]
+      - name: is_cost_estimated
+        description: 1 when unit_cost was estimated because the product master had no cost.
+        tests:
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+
+  - name: int_order_payments
+    description: One row per order that has at least one payment event, summarising collected, refunded and failed amounts.
+    columns:
+      - name: order_id
+        description: Order key.
+        tests: [unique, not_null]
+      - name: amount_paid
+        description: Sum of successful payments, KES.
+        tests: [non_negative]
+      - name: amount_refunded
+        description: Sum of refunds, KES.
+        tests: [non_negative]
+      - name: failed_attempts
+        description: Count of failed payment attempts (e.g. M-Pesa STK push timeouts).
+      - name: payment_events
+        description: Total payment events for the order.
+      - name: paid_at
+        description: Timestamp of the successful payment.
+      - name: payment_status
+        description: Rolled-up status.
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['paid', 'refunded', 'failed']
+
+  - name: int_customer_order_sequence
+    description: >
+      One row per completed order with its position in the customer's purchase history.
+      Kept as a full-refresh table so that the incremental `fct_orders` can still know whether an
+      order is a customer's first.
+    columns:
+      - name: order_id
+        description: Order key.
+        tests: [unique, not_null]
+      - name: customer_id
+        description: Customer key.
+        tests: [not_null]
+      - name: order_ts
+        description: Order timestamp.
+      - name: channel
+        description: Channel of the order.
+      - name: customer_order_number
+        description: 1 for the customer's first completed order, 2 for the second, ...
+        tests: [not_null]
+      - name: previous_order_ts
+        description: Timestamp of the customer's previous completed order.
+      - name: days_since_previous_order
+        description: Days between this and the previous completed order.
