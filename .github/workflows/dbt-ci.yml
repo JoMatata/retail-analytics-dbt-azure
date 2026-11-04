@@ -1,0 +1,48 @@
+name: dbt CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  dbt-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate synthetic raw data (seeded, reproducible)
+        run: python scripts/generate_data.py --no-sample
+
+      - name: dbt deps
+        run: dbt deps --profiles-dir . --target dev
+
+      - name: dbt build (seeds, snapshots, models, 150+ tests) on DuckDB
+        run: |
+          mkdir -p data/warehouse
+          dbt build --profiles-dir . --target dev
+
+      - name: Re-run fct_orders to exercise the incremental path
+        run: dbt build --profiles-dir . --target dev --select fct_orders
+
+      - name: Export Tableau extracts (size-checked)
+        run: python scripts/export_for_tableau.py
+
+      - name: Upload dbt artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dbt-target
+          path: |
+            target/run_results.json
+            target/manifest.json
